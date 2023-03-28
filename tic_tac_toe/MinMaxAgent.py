@@ -99,6 +99,8 @@ class MinMaxAgent(Player):
 
                 self.cache[board_hash] = (min_value, action)
         return min_value, action
+    
+        
 
     def _max(self, board: Board) -> (float, int):
         """
@@ -114,18 +116,20 @@ class MinMaxAgent(Player):
         #
         board_hash = board.hash_value()
         if board_hash in self.cache:
-            return self.cache[board_hash]
+         return self.cache[board_hash]
 
         #
         # Init the min value as well as action. Min value is set to DRAW as this value will pass through in case
         # of a draw
         #
+
         max_value = self.DRAW_VALUE
         action = -1
 
-        #
-        # If the game has already finished we return. Otherwise we look at possible continuations
-        #
+         #
+         # If the game has already finished we return. Otherwise we look at possible continuations
+         #
+
         winner = board.who_won()
         if winner == self.side:
             max_value = self.WIN_VALUE
@@ -148,7 +152,7 @@ class MinMaxAgent(Player):
                         self.cache[board_hash] = (max_value, action)
                         return max_value, action
 
-                self.cache[board_hash] = (max_value, action)
+                 self.cache[board_hash] = (max_value, action)
         return max_value, action
 
     def move(self, board: Board) -> (GameResult, bool):
