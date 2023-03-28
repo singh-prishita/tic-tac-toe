@@ -6,7 +6,7 @@ from tic_tac_toe.Board import Board, EMPTY, GameResult
 from tic_tac_toe.Player import Player
 
 
-class MinMaxAgent(Player):
+class AlphaBetaAgent(Player):
     """
     A computer player implementing the Min Max algorithm.
 
